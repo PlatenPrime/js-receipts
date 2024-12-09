@@ -10,8 +10,8 @@ window.onload = function () {
       const nestedGreeting = function (greeting) {
         console.log(`${greeting}, ${this.name}, I am a nested function`);
       }
-        // .bind(newObject) - привязать this к newObject
-        .bind(this); // Привязать this, это будет динамическое привязывание к тому объекту, что вызывает метод
+        .bind(newObject) //- привязать this к newObject
+       // .bind(this);  Привязать this, это будет динамическое привязывание к тому объекту, что вызывает метод
 
       nestedGreeting("Hello");
     },
