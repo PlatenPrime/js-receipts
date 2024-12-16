@@ -1,4 +1,6 @@
 function greeting(greeting) {
+
+  
   let countOfCreations = 0;
 
   
@@ -11,6 +13,9 @@ function greeting(greeting) {
 
 const hello = greeting("Hello");
 hello("Platen");
+
+let countOfCreations = 87;
+
 
 const hi = greeting("Hi");
 hi("Platen");
