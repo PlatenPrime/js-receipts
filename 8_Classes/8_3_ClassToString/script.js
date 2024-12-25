@@ -41,3 +41,9 @@ console.log(error);
 }
 
 
+const time = Date.now();
+const time2 = new Date();
+
+console.log(time);
+
+console.log(time2.getTime());
