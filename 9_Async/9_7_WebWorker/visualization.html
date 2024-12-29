@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visualization of Sieve of Eratosthenes</title>
+    <style>
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
+        gap: 5px;
+        margin-top: 20px;
+      }
+      .cell {
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        border: 1px solid #ccc;
+      }
+      .prime {
+        background-color: lightgreen;
+      }
+      .composite {
+        background-color: lightcoral;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Visualization of Sieve of Eratosthenes</h1>
+    <div id="grid" class="grid"></div>
+
+    <script>
+      function visualizeSieve(from, to) {
+        const grid = document.getElementById("grid");
+        grid.style.gridTemplateColumns = `repeat(${Math.ceil(
+          Math.sqrt(to)
+        )}, 1fr)`;
+
+        const isPrime = Array(to + 1).fill(true);
+        isPrime[0] = isPrime[1] = false;
+
+        // Создаём визуальный элемент для каждого числа
+        const cells = [];
+        for (let i = 0; i <= to; i++) {
+          const cell = document.createElement("div");
+          cell.className = "cell";
+          cell.textContent = i;
+          grid.appendChild(cell);
+          cells.push(cell);
+        }
+
+        // Алгоритм решета
+        for (let i = 2; i * i <= to; i++) {
+          if (isPrime[i]) {
+            cells[i].classList.add("prime");
+            for (let j = i * i; j <= to; j += i) {
+              isPrime[j] = false;
+              cells[j].classList.add("composite");
+            }
+          }
+        }
+
+        // Помечаем оставшиеся простые числа
+        for (let i = from; i <= to; i++) {
+          if (isPrime[i]) {
+            cells[i].classList.add("prime");
+          }
+        }
+      }
+
+      // Визуализируем
+      visualizeSieve(10, 50);
+    </script>
+  </body>
+</html>
