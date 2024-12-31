@@ -11,6 +11,7 @@ function findPrimes(fromNumber, toNumber) {
   // Test for primes
   const maxDiv = Math.round(Math.sqrt(toNumber));
   const primes = [];
+  let previousProgress = 0;
 
   for (let i = 0; i < list.length; i += 1) {
     let failed = false;
@@ -20,6 +21,13 @@ function findPrimes(fromNumber, toNumber) {
       } else if (j === maxDiv && failed === false) {
         primes.push(list[i]);
       }
+    }
+
+    // Give a progress update
+    const progress = Math.round((i / list.length) * 100);
+    if (progress !== previousProgress) {
+      postMessage({ messageType: "Progress", data: progress });
+      previousProgress = progress;
     }
   }
 
@@ -35,5 +43,5 @@ onmessage = (event) => {
 
   // Send back the result
   console.log("Worker sending message");
-  postMessage(primes);
+  postMessage({ messageType: "PrimeList", data: primes });
 };
