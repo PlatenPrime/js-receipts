@@ -1,0 +1,15 @@
+.red {
+    color: red;
+}
+
+.blue {
+    background-color: rgba(0, 132, 255, 0.507);
+}
+
+.box {
+    border: 1px solid black;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.541);
+    padding: 10px;
+    border-radius: 1rem;
+    display: inline-block
+}
