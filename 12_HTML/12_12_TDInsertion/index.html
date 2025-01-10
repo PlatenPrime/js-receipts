@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+      table tr {
+        &:nth-child(even) {
+          background-color: rgba(211, 211, 211, 0.531);
+        }
+      }
+      table td {
+        border: 1px solid black;
+        padding: 5px;
+      }
+    </style>
+    <h1>Adding Up Values in an HTML</h1>
+    <table>
+      <tbody id="table1">
+        <tr>
+          <td>Washington</td>
+          <td>145</td>
+        </tr>
+        <tr>
+          <td>Oregon</td>
+          <td>189</td>
+        </tr>
+        <tr>
+          <td>Texas</td>
+          <td>123</td>
+        </tr>
+        <tr>
+          <td>Utah</td>
+          <td>156</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
